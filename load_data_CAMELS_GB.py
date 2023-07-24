@@ -19,41 +19,39 @@ if not os.path.isdir(figures_path):
 
 # load camels dataset
 # load attributes
-US_attributes_path = data_path + "CAMELS_GB/xxx"
-attributes_list = ["clim","geol","hydro","soil","topo","vege"]
+GB_attributes_path = data_path + "CAMELS_GB/data/"
+attributes_list = ["climatic","humaninfluence","hydrogeology","hydrologic","hydrometry","landcover","soil"]
 
-df_attributes = pd.read_csv(US_attributes_path + "camels_" + "name" + ".txt", sep=';')
+df_attributes = pd.read_csv(GB_attributes_path + "CAMELS_GB_" + "topographic" + "_attributes.csv", sep=',')
 for attribute in attributes_list:
-    df_attributes_tmp = pd.read_csv(US_attributes_path + "camels_" + attribute + ".txt", sep=';')
+    df_attributes_tmp = pd.read_csv(GB_attributes_path + "CAMELS_GB_" + attribute + "_attributes.csv", sep=',')
     df_attributes = pd.merge(df_attributes,df_attributes_tmp)
 
 # load timeseries
 # the model outputs also contain the observed streamflow data alongside precipitation and pet
-US_modelled_path = "CAMELS_US/basin_timeseries_v1p2_modelOutput_daymet/model_output_daymet/model_output/flow_timeseries/daymet/"
+GB_timeseries_path = "CAMELS_GB/data/timeseries/"
 
 # loop over folder with timeseries
-df_timeseries = pd.DataFrame(columns = ["YR", "MNTH", "DY", "HR", "SWE", "PRCP", "RAIM", "TAIR", "PET", "ET", "MOD_RUN", "OBS_RUN"])
-for path, subdirs, files in os.walk(data_path+US_modelled_path):
-    for name in files:
-        if '05_model_output' in name:
-            #print(os.path.join(path, name))
-            df_tmp = pd.read_csv(os.path.join(path, name), sep='\s+')
-            df_tmp["gauge_id"] = name[0:8]
-            if len(df_timeseries) == 0:
-                df_timeseries = df_tmp
-            else:
-                df_timeseries = pd.concat([df_timeseries, df_tmp])
+df_timeseries = pd.DataFrame(columns = ["date","precipitation","pet","temperature","discharge_spec","discharge_vol","peti","humidity","shortwave_rad","longwave_rad","windspeed"])
+for id in df_attributes["gauge_id"]:
+    tmp_path = data_path + GB_timeseries_path + "CAMELS_GB_hydromet_timeseries_" + str(id) + "_19701001-20150930.csv"
+    df_tmp = pd.read_csv(tmp_path, sep=',')
+    df_tmp["gauge_id"] = id
+    if len(df_timeseries) == 0:
+        df_timeseries = df_tmp
+    else:
+        df_timeseries = pd.concat([df_timeseries, df_tmp])
 
 print("finished loading time series")
 
-df_timeseries['date'] = pd.to_datetime(dict(year=df_timeseries.YR, month=df_timeseries.MNTH, day=df_timeseries.DY))
+#df_timeseries['date'] = pd.to_datetime(dict(year=df_timeseries.YR, month=df_timeseries.MNTH, day=df_timeseries.DY))
 df_selected = pd.DataFrame()
 df_selected["gauge_id"] = df_timeseries["gauge_id"]
 df_selected["date"] = df_timeseries["date"]
-df_selected["precipitation"] = df_timeseries["PRCP"]
-df_selected["pet"] = df_timeseries["PET"]
-df_selected["streamflow"] = df_timeseries["OBS_RUN"]
-df_selected["temperature"] = df_timeseries["TAIR"]
+df_selected["precipitation"] = df_timeseries["precipitation"]
+df_selected["pet"] = df_timeseries["pet"]
+df_selected["streamflow"] = df_timeseries["discharge_vol"]
+df_selected["temperature"] = df_timeseries["temperature"]
 
 # average time series
 df_mean = df_selected.groupby('gauge_id').mean()
@@ -63,7 +61,6 @@ df_mean["runoff_ratio_control"] = df_mean["streamflow"]/df_mean["precipitation"]
 print("finished averaging time series")
 
 # todo: select only relevant attributes
-df_attributes["gauge_id"] = df_attributes["gauge_id"].astype(str).str.zfill(8)
 df_attributes.index = df_attributes["gauge_id"]
 
 df = df_mean.join(df_attributes, on='gauge_id')
