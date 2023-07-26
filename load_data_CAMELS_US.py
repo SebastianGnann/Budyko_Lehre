@@ -45,6 +45,8 @@ for path, subdirs, files in os.walk(data_path+US_modelled_path):
             #print(os.path.join(path, name))
             df_tmp = pd.read_csv(os.path.join(path, name), sep='\s+')
             df_tmp["gauge_id"] = name[0:8]
+            df_tmp.loc[df_tmp["OBS_RUN"] < 0, "OBS_RUN"] = np.nan # nan is -999 in CAMELS
+            #df_tmp = df_tmp.dropna()
             if len(df_timeseries) == 0:
                 df_timeseries = df_tmp
             else:
@@ -116,6 +118,6 @@ axes.set_xlim([0, 5])
 axes.set_ylim([-0.25, 1.25])
 helper_fcts.plot_Budyko_limits(df[x_name], df[y_name], axes)
 helper_fcts.plot_Budyko_curve(np.linspace(0,10,100), axes)
-fig.savefig(figures_path + x_name + '_' + y_name + "_CAMELS_GB" + ".png", dpi=600, bbox_inches='tight')
+fig.savefig(figures_path + x_name + '_' + y_name + "_CAMELS_US" + ".png", dpi=600, bbox_inches='tight')
 plt.close()
 

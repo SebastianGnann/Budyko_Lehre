@@ -45,6 +45,7 @@ for id in df_attributes["gauge_id"]:
     tmp_path = data_path + GB_timeseries_path + "CAMELS_GB_hydromet_timeseries_" + str(id) + "_19701001-20150930.csv"
     df_tmp = pd.read_csv(tmp_path, sep=',')
     df_tmp["gauge_id"] = id
+    #df_tmp = df_tmp.dropna()
     if len(df_timeseries) == 0:
         df_timeseries = df_tmp
     else:
@@ -58,7 +59,7 @@ df_selected["gauge_id"] = df_timeseries["gauge_id"]
 df_selected["date"] = df_timeseries["date"]
 df_selected["precipitation"] = df_timeseries["precipitation"]
 df_selected["pet"] = df_timeseries["pet"]
-df_selected["streamflow"] = df_timeseries["discharge_vol"]
+df_selected["streamflow"] = df_timeseries["discharge_spec"]
 df_selected["temperature"] = df_timeseries["temperature"]
 
 # average time series
