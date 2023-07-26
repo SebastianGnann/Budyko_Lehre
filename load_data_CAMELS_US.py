@@ -27,6 +27,12 @@ for attribute in attributes_list:
     df_attributes_tmp = pd.read_csv(US_attributes_path + "camels_" + attribute + ".txt", sep=';')
     df_attributes = pd.merge(df_attributes,df_attributes_tmp)
 
+# select only relevant attributes
+df_attributes = df_attributes[['gauge_id', 'gauge_name', 'area_gages2', 'gauge_lat', 'gauge_lon',
+                               'p_seasonality', 'frac_snow', 'high_prec_freq',
+                               'frac_forest', 'slope_mean', 'elev_mean',
+                               'soil_depth_pelletier', 'clay_frac', 'carbonate_rocks_frac', 'geol_permeability']]
+
 # load timeseries
 # the model outputs also contain the observed streamflow data alongside precipitation and pet
 US_modelled_path = "CAMELS_US/basin_timeseries_v1p2_modelOutput_daymet/model_output_daymet/model_output/flow_timeseries/daymet/"
@@ -57,12 +63,11 @@ df_selected["temperature"] = df_timeseries["TAIR"]
 
 # average time series
 df_mean = df_selected.groupby('gauge_id').mean()
-df_mean["aridity_control"] = df_mean["pet"]/df_mean["precipitation"]
-df_mean["runoff_ratio_control"] = df_mean["streamflow"]/df_mean["precipitation"]
+df_mean["aridity"] = df_mean["pet"]/df_mean["precipitation"]
+df_mean["runoff_ratio"] = df_mean["streamflow"]/df_mean["precipitation"]
 
 print("finished averaging time series")
 
-# todo: select only relevant attributes
 df_attributes["gauge_id"] = df_attributes["gauge_id"].astype(str).str.zfill(8)
 df_attributes.index = df_attributes["gauge_id"]
 
