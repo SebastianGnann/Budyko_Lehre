@@ -76,24 +76,27 @@ df_attributes.index = df_attributes["gauge_id"]
 df = df_mean.join(df_attributes, on='gauge_id')
 
 # calculate annual averages
-years = ['1981', '1982', '1983', '1984', '1985', '1986', '1987', '1988', '1989', '1990']
-for year in years:
-    start_date = year + '-01-01'
-    end_date = year + '-12-31'
+#years = ['1981', '1982', '1983', '1984', '1985', '1986', '1987', '1988', '1989', '1990']
+years = np.linspace(2000,2009,10)
+for i in range(len(years)):
+    year = years[i]
+    print(year)
+    start_date = str(int(year-1)) + '-10-01'
+    end_date = str(int(year)) + '-09-30'
     mask = (df_selected['date'] >= start_date) & (df_selected['date'] <= end_date)
-    df_tmp = df_selected.loc[mask].groupby('gauge_id').mean()
+    df_tmp = df_selected.loc[mask].groupby('gauge_id', dropna=False).mean()
     df_tmp["aridity"] = df_tmp["pet"]/df_tmp["precipitation"]
     df_tmp["runoff_ratio"] = df_tmp["streamflow"]/df_tmp["precipitation"]
-    df_tmp = df_tmp.add_suffix('_' + year)
+    df_tmp = df_tmp.add_suffix('_' + str(int(year)))
     df = df_tmp.join(df, on='gauge_id')
 
 # calculate decadal averages
-decades = [['1981','1990'], ['1991','2000'], ['2001','2010']]
+decades = [['1980','1989'], ['1990','1999'], ['2000','2009']]
 for decade in decades:
     start_date = decade[0] + '-01-01'
     end_date = decade[1] + '-12-31'
     mask = (df_selected['date'] >= start_date) & (df_selected['date'] <= end_date)
-    df_tmp = df_selected.loc[mask].groupby('gauge_id').mean()
+    df_tmp = df_selected.loc[mask].groupby('gauge_id', dropna=False).mean()
     df_tmp["aridity"] = df_tmp["pet"]/df_tmp["precipitation"]
     df_tmp["runoff_ratio"] = df_tmp["streamflow"]/df_tmp["precipitation"]
     df_tmp = df_tmp.add_suffix('_' + decade[0] + '-' + decade[1])
