@@ -4,7 +4,7 @@ Jupyter Notebook für interaktive Lehre.
 Die Hauptdatei ist *Budyko.ipynb*. 
 Diese enthält das relevante Material für die Online-Vorlesung.
 
-Sie können das Notebook unter folgendem Link im Browser laufen lassen: https://mybinder.org/v2/gh/SebastianGnann/Budyko_Lehre/HEAD
+Sie können das Notebook unter folgendem Link im Browser laufen lassen: [https://mybinder.org/v2/gh/SebastianGnann/Budyko_Lehre/HEAD](https://mybinder.org/v2/gh/SebastianGnann/Budyko_Lehre/HEAD)
 
 Bitte beachten Sie, dass das Laden des Notebooks via MyBinder manchmal einige Minuten dauern kann.
 
