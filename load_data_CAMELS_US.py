@@ -40,12 +40,17 @@ US_modelled_path = "CAMELS_US/basin_timeseries_v1p2_modelOutput_daymet/model_out
 
 # loop over folder with timeseries
 df_timeseries = pd.DataFrame(columns = ["YR", "MNTH", "DY", "HR", "SWE", "PRCP", "RAIM", "TAIR", "PET", "ET", "MOD_RUN", "OBS_RUN"])
+gauge_id_control = []
 for path, subdirs, files in os.walk(data_path+US_modelled_path):
     for name in files:
         if '05_model_output' in name:
             #print(os.path.join(path, name))
             df_tmp = pd.read_csv(os.path.join(path, name), sep='\s+')
             df_tmp["gauge_id"] = name[0:8]
+            if name[0:8] in gauge_id_control:
+                #print('existing twice')
+                continue
+            gauge_id_control.append(name[0:8])
             df_tmp.loc[df_tmp["OBS_RUN"] < 0, "OBS_RUN"] = np.nan # nan is -999 in CAMELS
             #df_tmp = df_tmp.dropna()
             if len(df_timeseries) == 0:
