@@ -7,7 +7,7 @@
 Dieses GitHub-Repository enthält das Material für die interaktive Online-Vorlesung zum Thema "Budyko und die klimatische Wasserbilanz". 
 Die Hauptdatei ist *Budyko.ipynb*, ein sogenanntes Jupyter-Notebook. Die anderen Dateien werden zur Ausführung des Notebooks gebraucht, müssen aber nicht extra aufgerufen werden.
 
-Sie können das Jupyter-Notebook unter folgendem Link im Browser laufen lassen: [https://mybinder.org/v2/gh/SebastianGnann/Budyko_Lehre/HEAD](https://mybinder.org/v2/gh/SebastianGnann/Budyko_Lehre/HEAD)
+Sie können das Jupyter-Notebook unter folgendem Link im Browser laufen lassen: [https://mybinder.org/v2/gh/SebastianGnann/Budyko_Lehre/HEAD](https://mybinder.org/v2/gh/SebastianGnann/Budyko_Lehre/master?urlpath=lab/tree/Budyko_Lehre.ipynb)
 
 Bitte beachten Sie, dass das Laden des Notebooks via MyBinder manchmal einige Minuten dauern kann.
 
