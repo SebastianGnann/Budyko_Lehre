@@ -21,5 +21,5 @@ Die Daten basieren auf dem folgenden Datensatz
 - CAMELS Datensatz (USA): https://gdex.ucar.edu/dataset/camels.html & https://gdex.ucar.edu/dataset/camels.html
 
 ## Danksagung
-Vielen Dank an Markus Weiler für Kommentare zum Notebook.
+Vielen Dank an Markus Weiler und Lina Stein für Kommentare zum Notebook.
 
