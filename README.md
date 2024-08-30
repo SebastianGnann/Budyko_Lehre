@@ -4,8 +4,6 @@
 
 [![DOI](https://zenodo.org/badge/657101157.svg)](https://zenodo.org/doi/10.5281/zenodo.10809061)
 
-*Pre-release: dieses Notebook wird momentan noch getestet.*
-
 Bei Fragen wenden Sie sich bitte an sebastian.gnann@hydrologie.uni-freiburg.de.
 
 Dieses GitHub-Repository enthält das Material für die interaktive Online-Vorlesung zum Thema "Budyko und die klimatische Wasserbilanz". 
