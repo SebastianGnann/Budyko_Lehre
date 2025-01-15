@@ -11,7 +11,7 @@ Die Hauptdatei ist *Budyko.ipynb*, ein sogenanntes Jupyter-Notebook. Die anderen
 
 Sie können das Jupyter-Notebook unter folgendem Link im Browser laufen lassen: https://mybinder.org/v2/gh/SebastianGnann/Budyko_Lehre/master?urlpath=lab/tree/Budyko.ipynb
 
-**Achtung**: Momentan scheint es nicht möglich zu sein das Notebook direkt über diesen Link auszuführen, deswegen folgen Sie bitte der folgenden Anleitung.
+**Achtung**: Manchmal ist es nicht möglich das Notebook direkt über diesen Link auszuführen. In diesem Fall folgen Sie bitte der folgenden Anleitung.
 Gehen Sie auf https://notebooks.gesis.org/binder/. Kopieren Sie dann den Github Link in das obere Feld (https://github.com/SebastianGnann/Budyko_Lehre), sowie den Namen des Notebooks in das untere Feld (Budyko.ipynb). Klicken Sie anschließend auf „launch“ um das Notebook zu starten. 
 
 Bitte beachten Sie, dass das Laden des Notebooks via MyBinder manchmal einige Minuten dauern kann.
