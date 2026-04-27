@@ -1,3 +1,5 @@
+--- English version below ---
+
 # Willkommen zur interaktiven Vorlesung zum Thema "Budyko und die klimatische Wasserbilanz"
 
 **Sebastian Gnann, Daniel Kretschmer, Thorsten Wagener**
@@ -28,3 +30,35 @@ Die Daten basieren auf dem folgenden Datensatz
 ## Danksagung
 Vielen Dank an Markus Weiler und Lina Stein für Kommentare zum Notebook.
 
+
+--- English version ---
+
+# Welcome to the interactive lecture on “Budyko and the Climate Water Balance”
+
+**Sebastian Gnann, Daniel Kretschmer, Thorsten Wagener**
+
+[![DOI](https://zenodo.org/badge/657101157.svg)](https://zenodo.org/doi/10.5281/zenodo.10809061)
+
+If you have any questions, please contact sebastian.gnann@hydrologie.uni-freiburg.de.
+
+This GitHub repository contains the materials for the interactive online lecture on “Budyko and the climatic water balance.” 
+The main file is *Budyko.ipynb*, a so-called Jupyter notebook. The other files are required to run the notebook but do not need to be opened separately.
+
+You can run the Jupyter notebook in your browser using the following link: https://mybinder.org/v2/gh/SebastianGnann/Budyko_Lehre/master?urlpath=lab/tree/Budyko.ipynb
+
+**Note**: Sometimes it is not possible to run the notebook directly via this link. In that case, please follow the instructions below.
+Go to https://notebooks.gesis.org/binder/. Then copy the GitHub link into the top field (https://github.com/SebastianGnann/Budyko_Lehre) and the name of the notebook into the bottom field (Budyko.ipynb). Finally, click “launch” to start the notebook. 
+
+Please note that loading the notebook via MyBinder can sometimes take a few minutes.
+
+## Further Information
+
+### Repository Contents
+*load_data_CAMELS_US.py* loads and processes the data used in the notebook.
+
+### Data
+The data is based on the following dataset
+- CAMELS dataset (USA): https://gdex.ucar.edu/dataset/camels.html & https://gdex.ucar.edu/dataset/camels.html
+
+## Acknowledgments
+Many thanks to Markus Weiler and Lina Stein for their comments on the notebook.
