@@ -1,4 +1,7 @@
---- English version below ---
+*English version below*
+
+---
+
 
 # Willkommen zur interaktiven Vorlesung zum Thema "Budyko und die klimatische Wasserbilanz"
 
@@ -31,9 +34,9 @@ Die Daten basieren auf dem folgenden Datensatz
 Vielen Dank an Markus Weiler und Lina Stein für Kommentare zum Notebook.
 
 
---- English version ---
+---
 
-# Welcome to the interactive lecture on “Budyko and the Climate Water Balance”
+# Welcome to the interactive lecture on “Budyko and the Climatic Water Balance”
 
 **Sebastian Gnann, Daniel Kretschmer, Thorsten Wagener**
 
@@ -42,12 +45,12 @@ Vielen Dank an Markus Weiler und Lina Stein für Kommentare zum Notebook.
 If you have any questions, please contact sebastian.gnann@hydrologie.uni-freiburg.de.
 
 This GitHub repository contains the materials for the interactive online lecture on “Budyko and the climatic water balance.” 
-The main file is *Budyko.ipynb*, a so-called Jupyter notebook. The other files are required to run the notebook but do not need to be opened separately.
+The main file for the English version is *Budyko_English.ipynb*, a so-called Jupyter notebook. The other files are required to run the notebook but do not need to be opened separately.
 
-You can run the Jupyter notebook in your browser using the following link: https://mybinder.org/v2/gh/SebastianGnann/Budyko_Lehre/master?urlpath=lab/tree/Budyko.ipynb
+You can run the Jupyter notebook in your browser using the following link: https://mybinder.org/v2/gh/SebastianGnann/Budyko_Lehre/master?urlpath=lab/tree/Budyko_English.ipynb
 
 **Note**: Sometimes it is not possible to run the notebook directly via this link. In that case, please follow the instructions below.
-Go to https://notebooks.gesis.org/binder/. Then copy the GitHub link into the top field (https://github.com/SebastianGnann/Budyko_Lehre) and the name of the notebook into the bottom field (Budyko.ipynb). Finally, click “launch” to start the notebook. 
+Go to https://notebooks.gesis.org/binder/. Then copy the GitHub link into the top field (https://github.com/SebastianGnann/Budyko_Lehre) and the name of the notebook into the bottom field (Budyko_English.ipynb). Finally, click “launch” to start the notebook. 
 
 Please note that loading the notebook via MyBinder can sometimes take a few minutes.
 
